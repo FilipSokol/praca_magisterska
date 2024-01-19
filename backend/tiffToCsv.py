@@ -48,12 +48,6 @@ def tiff_to_csv(input_tiff, output_csv):
     coords = get_coords(file_8bit) # Funkcja generująca współrzędne dla układu 4D
 
     # Połącznie współrzędnych, kolorów i rozmiarów pikseli
-
-    # V1
-    # coords_arr = np.c_[coords, coords_flat[::3], coords_flat[1::3], coords_flat[2::3], np.ones((coords_flat[::3].size),dtype=int)]
-    # V2
-    # coords_arr = np.c_[coords, coords[::3].flatten(), coords[1::3].flatten(), coords[2::3].flatten(), np.ones((coords[::3].flatten().size),dtype=int)]
-    # V3
     coords_arr = np.c_[coords, coords[::3].flatten(), coords[1::3].flatten(), coords[2::3].flatten()]
 
     print(coords_arr)
