@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 
-import { useEffect } from "react";
 import "./styles.css";
 import Plot from "react-plotly.js";
 
@@ -9,7 +8,7 @@ function PlotArea(props) {
 
   const scatterChart = plotData
     ? {
-        type: "scatter3d",
+        type: plotType,
         mode: "markers",
         x: plotData.map((entry) => entry.X),
         y: plotData.map((entry) => entry.Y),
@@ -23,30 +22,19 @@ function PlotArea(props) {
       }
     : null;
 
-  useEffect(() => console.log(plotData), [plotData]);
   return (
     <div className="plots">
-      <h1>Analiza danych i wykresy</h1>
-      {plotData && (
+      {plotData ? (
         <Plot
           data={[scatterChart]}
-          layout={{ width: 800, height: 600, title: "Wykres 3D" }}
+          autosize
+          layout={{ height: 520, title: "Wykres danych obrazu TIFF" }}
         />
+      ) : (
+        <div className="empty">
+          <h2>Załaduj plik</h2>
+        </div>
       )}
-
-      {/* <Plot
-        data={[
-          {
-            x: [1, 2, 3],
-            y: [2, 6, 3],
-            type: "scatter",
-            mode: "lines+markers",
-            marker: { color: "red" },
-          },
-          { type: "bar", x: [1, 2, 3], y: [2, 5, 3] },
-        ]}
-        layout={{ width: 320, height: 240, title: "A Fancy Plot" }}
-      /> */}
     </div>
   );
 }

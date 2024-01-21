@@ -6,12 +6,12 @@ import PlotArea from "./components/plotArea";
 
 function App() {
   const [plotData, setPlotData] = useState(null);
-  const [plotType, setPlotType] = useState(null);
+  const [plotType, setPlotType] = useState("scatter3d");
 
   return (
     <main>
-      <Dashboard {...{ setPlotData, setPlotType }} />
-      <PlotArea {...{ plotData, plotType }} />
+      <Dashboard {...{ setPlotType, setPlotData }} />
+      <PlotArea {...{ plotData, plotType, setPlotData }} />
     </main>
   );
 }
