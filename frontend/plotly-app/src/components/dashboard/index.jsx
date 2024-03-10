@@ -16,6 +16,7 @@ function Dashboard(props) {
         Papa.parse(e.target.result, {
           header: true,
           complete: (result) => {
+            console.log(result);
             setPlotData(result.data);
           },
         });
