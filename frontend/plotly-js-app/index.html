@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plotly JS App</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <script
+      src="https://cdn.plot.ly/plotly-2.30.0.min.js"
+      charset="utf-8"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <div id="dashboard" class="dashboard">
+        <div class="buttons">
+          <div class="plotTypes">
+            <button id="scatter3dBtn">Scatter 3D</button>
+            <button id="surfaceBtn">Surface 3D</button>
+            <button id="mesh3dBtn">Mesh 3D</button>
+          </div>
+          <div class="dataInput">
+            <input type="file" id="fileInput" accept=".csv" />
+          </div>
+        </div>
+      </div>
+      <div id="plotArea" class="plots">
+        <div class="empty">
+          <h2 id="emptyMessage">Załaduj plik</h2>
+        </div>
+      </div>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
